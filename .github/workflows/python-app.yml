@@ -45,6 +45,12 @@ jobs:
       run: poetry install
     - name: Run Pytest
       run: poetry run pytest
+      env:
+        # The hostname used to communicate with the PostgreSQL service container
+        POSTGRES_HOST: postgres
+        # The default PostgreSQL port
+        POSTGRES_PORT: 5432
+        POSTGRES_PASSWORD: postgres
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
