@@ -22,6 +22,7 @@ pylint = "^2.15.0"
 datamodel-code-generator = {extras = ["http"], version = "^0.13.1"}
 responses = "^0.21.0"
 deepdiff = "^5.8.1"
+flake8 = "^5.0.4"
 
 [tool.pylint.'MESSAGES CONTROL']
 extension-pkg-whitelist = "pydantic"
