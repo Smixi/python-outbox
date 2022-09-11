@@ -4,8 +4,10 @@ from sqlalchemy.orm import Session
 
 from ..base.source import AbstractSource
 from ..base.type import PayloadT
-from .sqlalchemy_storage_box import (SQLAlchemyJsonStorageBox,
-                                     SQLAlchemyPydanticStorageBox)
+from .sqlalchemy_storage_box import (
+    SQLAlchemyJsonStorageBox,
+    SQLAlchemyPydanticStorageBox,
+)
 from .sqlalchemy_storage_box import SQLAlchemyStorageBoxMixin as SABox
 
 

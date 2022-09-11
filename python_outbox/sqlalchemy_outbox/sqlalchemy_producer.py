@@ -1,10 +1,8 @@
 import logging
 from datetime import datetime
 
-from python_outbox.sqlalchemy_outbox.sqlalchemy_mapper import \
-    SQLAlchemyStorageBoxMapper
-from python_outbox.sqlalchemy_outbox.sqlalchemy_source import \
-    SQLAlchemyStorageBoxSource
+from python_outbox.sqlalchemy_outbox.sqlalchemy_mapper import SQLAlchemyStorageBoxMapper
+from python_outbox.sqlalchemy_outbox.sqlalchemy_source import SQLAlchemyStorageBoxSource
 
 from ..base.producer import AbstractProducer
 from ..base.publisher import AbstractPublisher

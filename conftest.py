@@ -5,8 +5,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
 
 from python_outbox.sqlalchemy_outbox.sqlalchemy_base import Base
-from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import \
-    SQLAlchemyStorageBoxMixin
+from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import (
+    SQLAlchemyStorageBoxMixin,
+)
 
 POSTGRES_HOST = env.get("POSTGRES_HOST", "localhost")
 POSTGRES_PASSWORD = env.get("POSTGRES_PASSWORD", "postgres")

@@ -29,7 +29,10 @@ Flake8-pyproject = "^1.1.0"
 extension-pkg-whitelist = "pydantic"
 
 [tool.flake8]
-max-line-length = 120
+max-line-length = 127
+
+[tool.isort]
+profile = "black"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

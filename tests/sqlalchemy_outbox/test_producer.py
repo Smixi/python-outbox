@@ -1,14 +1,14 @@
 from sqlalchemy.orm import Session
 
 from python_outbox.generic.publisher import VoidPublisher
-from python_outbox.sqlalchemy_outbox.sqlalchemy_mapper import \
-    SQLAlchemyStorageBoxMapper
-from python_outbox.sqlalchemy_outbox.sqlalchemy_producer import \
-    SQLAlchemyStorageBoxProducer
-from python_outbox.sqlalchemy_outbox.sqlalchemy_source import \
-    SQLAlchemyStorageBoxSource
-from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import \
-    SQLAlchemyPydanticStorageBox
+from python_outbox.sqlalchemy_outbox.sqlalchemy_mapper import SQLAlchemyStorageBoxMapper
+from python_outbox.sqlalchemy_outbox.sqlalchemy_producer import (
+    SQLAlchemyStorageBoxProducer,
+)
+from python_outbox.sqlalchemy_outbox.sqlalchemy_source import SQLAlchemyStorageBoxSource
+from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import (
+    SQLAlchemyPydanticStorageBox,
+)
 
 
 def test_sqlalchemy_storage_box_producer(dbsession: Session):

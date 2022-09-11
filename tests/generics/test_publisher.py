@@ -6,9 +6,11 @@ from cloudevents.http import from_http
 from cloudevents.pydantic import CloudEvent
 from deepdiff import DeepDiff
 
-from python_outbox.generic.publisher import (CloudEventHTTPPublisher,
-                                             PublishFailedException,
-                                             VoidPublisher)
+from python_outbox.generic.publisher import (
+    CloudEventHTTPPublisher,
+    PublishFailedException,
+    VoidPublisher,
+)
 
 
 @responses.activate

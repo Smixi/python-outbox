@@ -1,10 +1,10 @@
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
-from python_outbox.sqlalchemy_outbox.sqlalchemy_mapper import \
-    SQLAlchemyStorageBoxMapper
-from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import \
-    SQLAlchemyPydanticStorageBox
+from python_outbox.sqlalchemy_outbox.sqlalchemy_mapper import SQLAlchemyStorageBoxMapper
+from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import (
+    SQLAlchemyPydanticStorageBox,
+)
 
 
 class APydanticClass(BaseModel):
