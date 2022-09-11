@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 from typing import Generic, Iterable, TypeVar
 
-from .type import PublishableT, PublisherT
+from .type import PublishableStorageT, PublishableT
 
 
-class AbstractMapper(Generic[PublishableT, PublisherT], ABC):
+class AbstractMapper(Generic[PublishableStorageT, PublishableT], ABC):
     @abstractmethod
-    def convert(self, source: PublishableT) -> PublisherT:
+    def convert(self, source: PublishableStorageT) -> PublishableT:
         """Return the converted item from source"""
         pass

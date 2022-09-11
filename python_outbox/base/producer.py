@@ -4,14 +4,14 @@ from typing import Generic
 from .mapper import AbstractMapper
 from .publisher import AbstractPublisher
 from .source import AbstractSource
-from .type import PublishableT, PublisherT
+from .type import PublishableStorageT, PublishableT
 
 
-class AbstractProducer(Generic[PublishableT, PublisherT], ABC):
+class AbstractProducer(Generic[PublishableStorageT, PublishableT], ABC):
     def __init__(
         self,
-        source: AbstractSource,
-        mapper: AbstractMapper[PublishableT, PublisherT],
+        source: AbstractSource[PublishableStorageT],
+        mapper: AbstractMapper[PublishableStorageT, PublishableT],
         publisher: AbstractPublisher,
     ) -> None:
         self.source = source

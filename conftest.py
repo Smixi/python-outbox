@@ -9,7 +9,7 @@ from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import (
     SQLAlchemyStorageBoxMixin,
 )
 
-POSTGRES_HOST = env.get("POSTGRES_HOST", "postgres")
+POSTGRES_HOST = env.get("POSTGRES_HOST", "localhost")
 POSTGRES_PASSWORD = env.get("POSTGRES_PASSWORD", "postgres")
 POSTGRES_USER = env.get("POSTGRES_USER", "postgres")
 POSTGRES_PORT = env.get("POSTGRES_PORT", "5432")
