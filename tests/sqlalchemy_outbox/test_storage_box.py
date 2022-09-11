@@ -4,9 +4,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from python_outbox.sqlalchemy_outbox.sqlalchemy_storage_box import (
-    SQLAlchemyJsonStorageBox,
-    SQLAlchemyPydanticStorageBox,
-)
+    SQLAlchemyJsonStorageBox, SQLAlchemyPydanticStorageBox)
 
 
 class APydanticModel(BaseModel):

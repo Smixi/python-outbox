@@ -1,4 +1,5 @@
 from typing import Generic, Iterable, TypeVar
 
+PublishableStorageT = TypeVar("PublishableStorageT")
 PublishableT = TypeVar("PublishableT")
-PublisherT = TypeVar("PublisherT")
+PayloadT = TypeVar("PayloadT")

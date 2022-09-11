@@ -8,10 +8,11 @@ from pydantic import BaseModel
 from sqlalchemy_utils import JSONType
 
 from ..base.storage_box import StorageBoxMixin
+from ..base.type import PayloadT
 from .sqlalchemy_base import Base
 
 
-class SQLAlchemyStorageBoxMixin(StorageBoxMixin, Base):
+class SQLAlchemyStorageBoxMixin(StorageBoxMixin[PayloadT], Base):
     """
     An SQL StorageBox mixin to hold any serializable type
     When using SQLAlchemy, you must use this serializer with the json_serializer:
@@ -57,6 +58,9 @@ class SQLAlchemyPydanticStorageBox(SQLAlchemyStorageBoxMixin):
         self.put(item)
 
     def pull(self) -> BaseModel:
+        # When the object is not already saved in DB and is still a Pydantic object
+        if issubclass(self._payload.__class__, BaseModel):
+            return self._payload
         module = importlib.import_module(self.module_name)
         klass: BaseModel = getattr(module, self.class_name)
         return klass(**self._payload)

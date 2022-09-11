@@ -1,3 +1,5 @@
+from typing import Any
+
 import requests
 from cloudevents.conversion import to_structured
 from cloudevents.pydantic import CloudEvent
@@ -5,7 +7,7 @@ from cloudevents.pydantic import CloudEvent
 from ..base.publisher import AbstractPublisher, PublishFailedException
 
 
-class CloudEventHTTPPublisher(AbstractPublisher):
+class CloudEventHTTPPublisher(AbstractPublisher[dict]):
     """Post the data as a cloud event."""
 
     def __init__(self, url, session: None | requests.Session = None):
@@ -32,3 +34,10 @@ class CloudEventHTTPPublisher(AbstractPublisher):
             raise PublishFailedException(
                 f"Cloud event published failed, server responded with a status != 200 OK. Server returned {response.status_code}"
             )
+
+
+class VoidPublisher(AbstractPublisher[Any]):
+    """A publisher that consume anything but publish nothing"""
+
+    def publish(self, item: Any) -> None:
+        return

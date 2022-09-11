@@ -6,10 +6,9 @@ from cloudevents.http import from_http
 from cloudevents.pydantic import CloudEvent
 from deepdiff import DeepDiff
 
-from python_outbox.generic.publisher import (
-    CloudEventHTTPPublisher,
-    PublishFailedException,
-)
+from python_outbox.generic.publisher import (CloudEventHTTPPublisher,
+                                             PublishFailedException,
+                                             VoidPublisher)
 
 
 @responses.activate
@@ -53,3 +52,8 @@ def test_http_cloud_event_publisher():
     # Connection error, no host
     with pytest.raises(PublishFailedException):
         publisher.publish(cloud_event_dict)
+
+
+def test_void_publisher():
+    publisher = VoidPublisher()
+    publisher.publish({})
