@@ -237,11 +237,7 @@ pycodestyle = ">=2.9.0,<2.10.0"
 pyflakes = ">=2.5.0,<2.6.0"
 
 [[package]]
-<<<<<<< HEAD
 name = "Flake8-pyproject"
-=======
-name = "flake8-pyproject"
->>>>>>> main
 version = "1.1.0.post0"
 description = "Flake8 plug-in loading the configuration from pyproject.toml"
 category = "dev"
@@ -253,11 +249,7 @@ Flake8 = ">=5,<6"
 TOMLi = {version = "*", markers = "python_version < \"3.11\""}
 
 [package.extras]
-<<<<<<< HEAD
 test = ["pyTest", "pyTest-cov"]
-=======
-test = ["pytest", "pytest-cov"]
->>>>>>> main
 
 [[package]]
 name = "genson"
@@ -948,7 +940,6 @@ python-versions = "^3.10"
 content-hash = "8976785c2a556cea0d453a313de7590c3712f1290f750c35b1002760fd95ad5f"
 
 [metadata.files]
-<<<<<<< HEAD
 anyio = [
     {file = "anyio-3.6.1-py3-none-any.whl", hash = "sha256:cb29b9c70620506a9a8f87a309591713446953302d7d995344d0d7c6c0c9a7be"},
     {file = "anyio-3.6.1.tar.gz", hash = "sha256:413adf95f93886e442aea925f3ee43baa5a765a64a0f52c6081894f9992fdd0b"},
@@ -1271,47 +1262,6 @@ ordered-set = [
     {file = "ordered-set-4.1.0.tar.gz", hash = "sha256:694a8e44c87657c59292ede72891eb91d34131f6531463aab3009191c77364a8"},
     {file = "ordered_set-4.1.0-py3-none-any.whl", hash = "sha256:046e1132c71fcf3330438a539928932caf51ddbc582496833e23de611de14562"},
 ]
-=======
-anyio = []
-argcomplete = []
-astroid = []
-attrs = []
-black = []
-certifi = []
-chardet = []
-charset-normalizer = []
-click = []
-cloudevents = []
-colorama = []
-datamodel-code-generator = []
-deepdiff = []
-deprecation = []
-dill = []
-dnspython = []
-email-validator = []
-flake8 = []
-flake8-pyproject = []
-genson = []
-greenlet = []
-h11 = []
-httpcore = []
-httpx = []
-idna = []
-inflect = []
-iniconfig = []
-isodate = []
-isort = []
-jinja2 = []
-jsonschema = []
-lazy-object-proxy = []
-markupsafe = []
-mccabe = []
-mypy = []
-mypy-extensions = []
-openapi-schema-validator = []
-openapi-spec-validator = []
-ordered-set = []
->>>>>>> main
 packaging = [
     {file = "packaging-21.3-py3-none-any.whl", hash = "sha256:ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522"},
     {file = "packaging-21.3.tar.gz", hash = "sha256:dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"},
