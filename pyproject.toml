@@ -4,6 +4,11 @@ version = "0.1.0"
 description = ""
 authors = ["Sami Tahri <sismixx@hotmail.fr>"]
 
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "semver"
+
 [tool.poetry.dependencies]
 python = "^3.10"
 SQLAlchemy = "^1.4.40"
