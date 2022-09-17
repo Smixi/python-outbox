@@ -1,11 +1,13 @@
+from email.policy import default
 import importlib
 import json
 from datetime import datetime
 from enum import Enum
+from uuid import uuid4
 
 import sqlalchemy as sa
 from pydantic import BaseModel
-from sqlalchemy_utils import JSONType
+from sqlalchemy_utils import JSONType, UUIDType
 
 from ..base.storage_box import StorageBoxMixin
 from ..base.type import PayloadT
@@ -17,7 +19,8 @@ class SQLAlchemyStorageBoxMixin(StorageBoxMixin[PayloadT], Base):
     An SQL StorageBox mixin to hold any serializable type
     When using SQLAlchemy, you must use this serializer with the json_serializer:
     create_engine("...", json_serializer=SQLAlchemyStorageBoxMixin.serializer)
-    Or use a custom serializer. It allows to serialize/deserialize Pydantic nicely while keeping JSON object support for postgres.
+    Or use a custom serializer. It allows to serialize/deserialize Pydantic nicely while keeping JSON object support for 
+    postgres.
     """
 
     class StatusEnum(Enum):
@@ -29,7 +32,7 @@ class SQLAlchemyStorageBoxMixin(StorageBoxMixin[PayloadT], Base):
 
     __abstract__: True
 
-    id = sa.Column(sa.BigInteger, primary_key=True, autoincrement=True)
+    id = sa.Column(UUIDType(binary=False), primary_key=True, default=uuid4)
     _payload = sa.Column("payload", JSONType)
     status = sa.Column(sa.Enum(StatusEnum), default=StatusEnum.WAITING)
     retries = sa.Column(sa.Integer, default=0)
@@ -48,6 +51,10 @@ class SQLAlchemyPydanticStorageBox(SQLAlchemyStorageBoxMixin):
 
     class_name = sa.Column(sa.String)
     module_name = sa.Column(sa.String)
+
+    def __init__(self, payload=None):
+        self.payload = payload
+        super().__init__()
 
     @property
     def payload(self) -> BaseModel:
@@ -74,6 +81,10 @@ class SQLAlchemyPydanticStorageBox(SQLAlchemyStorageBoxMixin):
 
 class SQLAlchemyJsonStorageBox(SQLAlchemyStorageBoxMixin):
     """An SQL StorageBox to hold any JSON value. The holded item MUST be json serializable (only dict with litterals)."""
+
+    def __init__(self, payload=None):
+        self.payload = payload
+        super().__init__()
 
     @property
     def payload(self) -> BaseModel:
