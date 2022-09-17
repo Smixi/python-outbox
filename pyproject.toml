@@ -9,7 +9,6 @@ python = "^3.10"
 SQLAlchemy = "^1.4.40"
 SQLAlchemy-Utils = "^0.38.3"
 pydantic = "^1.10.2"
-psycopg2 = "^2.9.3"
 black = "^22.8.0"
 cloudevents = "^1.6.1"
 
@@ -28,6 +27,7 @@ responses = "^0.21.0"
 deepdiff = "^5.8.1"
 flake8 = "^5.0.4"
 Flake8-pyproject = "^1.1.0"
+psycopg2 = "^2.9.3"
 
 [tool.pylint.'MESSAGES CONTROL']
 extension-pkg-whitelist = "pydantic"
