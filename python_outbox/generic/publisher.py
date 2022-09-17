@@ -18,7 +18,9 @@ class CloudEventHTTPPublisher(AbstractPublisher[dict]):
         super().__init__()
 
     def publish(self, item: dict) -> None:
-        """Publish the cloud event to the given url. The item must conform to the cloud event minimal requirements (type, source)"""
+        """
+        Publish the cloud event to the given url. The item must conform to the cloud event minimal requirements (type, source)
+        """
         try:
             cloud_event = CloudEvent(**item)
             headers, data = to_structured(cloud_event)
@@ -32,7 +34,8 @@ class CloudEventHTTPPublisher(AbstractPublisher[dict]):
 
         if response.status_code != 200:
             raise PublishFailedException(
-                f"Cloud event published failed, server responded with a status != 200 OK. Server returned {response.status_code}"
+                "Cloud event published failed, server responded with a status != 200"
+                f" OK. Server returned {response.status_code}"
             )
 
 
