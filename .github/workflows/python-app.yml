@@ -63,11 +63,3 @@ jobs:
     - name: Check isort
       run: |
         poetry run isort . --check
-    - name: Build and publish to pypi
-      uses: JRubics/poetry-publish@v1.13
-      with:
-        plugins: "poetry-dynamic-versioning-plugin"
-        repository_name: "testpipy"
-        repository_url: "https://test.pypi.org/legacy/"
-        repository_username: "__token__"
-        repository_password: ${{ secrets.TESTPYPI_TOKEN }}
