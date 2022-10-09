@@ -21,8 +21,13 @@ def test_http_cloud_event_publisher():
         "source": "source_test",
         "type": "source_type",
         "test_field": "test_field_value",
+        "another_field": "another_field_value",
     }
-    cloud_event = CloudEvent(**cloud_event_data)
+    cloud_event = CloudEvent(
+        type=cloud_event_data["type"],
+        source=cloud_event_data["source"],
+        data={"test_field": "test_field_value", "another_field": "another_field_value"},
+    )
     cloud_event_dict = cloud_event.dict()
 
     def check_ce(request: requests.PreparedRequest):
@@ -40,11 +45,7 @@ def test_http_cloud_event_publisher():
     responses.post(status=200, url=url, match=[check_ce])
 
     publisher = CloudEventHTTPPublisher(url=url)
-    publisher.publish(cloud_event.dict())
-
-    # Check with raw dict:
-    responses.post(status=200, url=url, match=[check_ce])
-    publisher.publish(cloud_event_data)
+    publisher.publish(cloud_event)
 
     # Request return other than a 404
     responses.post(status=404, url=url, match=[check_ce])

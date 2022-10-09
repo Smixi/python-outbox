@@ -7,7 +7,7 @@ from cloudevents.pydantic import CloudEvent
 from ..base.publisher import AbstractPublisher, PublishFailedException
 
 
-class CloudEventHTTPPublisher(AbstractPublisher[dict]):
+class CloudEventHTTPPublisher(AbstractPublisher[CloudEvent]):
     """Post the data as a cloud event."""
 
     def __init__(self, url, session: None | requests.Session = None):
@@ -17,12 +17,11 @@ class CloudEventHTTPPublisher(AbstractPublisher[dict]):
         )
         super().__init__()
 
-    def publish(self, item: dict) -> None:
+    def publish(self, cloud_event: CloudEvent) -> None:
         """
-        Publish the cloud event to the given url. The item must conform to the cloud event minimal requirements (type, source)
+        Publish the cloud event to the given url.
         """
         try:
-            cloud_event = CloudEvent(**item)
             headers, data = to_structured(cloud_event)
             response: requests.Response = self.session.post(
                 self.url, data=data, headers=headers

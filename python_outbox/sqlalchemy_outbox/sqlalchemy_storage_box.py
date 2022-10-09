@@ -1,4 +1,3 @@
-from email.policy import default
 import importlib
 import json
 from datetime import datetime
@@ -19,7 +18,7 @@ class SQLAlchemyStorageBoxMixin(StorageBoxMixin[PayloadT], Base):
     An SQL StorageBox mixin to hold any serializable type
     When using SQLAlchemy, you must use this serializer with the json_serializer:
     create_engine("...", json_serializer=SQLAlchemyStorageBoxMixin.serializer)
-    Or use a custom serializer. It allows to serialize/deserialize Pydantic nicely while keeping JSON object support for 
+    Or use a custom serializer. It allows to serialize/deserialize Pydantic nicely while keeping JSON object support for
     postgres.
     """
 
