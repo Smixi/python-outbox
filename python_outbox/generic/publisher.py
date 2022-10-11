@@ -31,7 +31,7 @@ class CloudEventHTTPPublisher(AbstractPublisher[CloudEvent]):
                 f"Cannot publish cloudevent to {self.url}"
             ) from exc
 
-        if response.status_code != 200:
+        if response.status_code < 200 or response.status_code >= 300:
             raise PublishFailedException(
                 "Cloud event published failed, server responded with a status != 200"
                 f" OK. Server returned {response.status_code}"
