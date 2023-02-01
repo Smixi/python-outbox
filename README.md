@@ -10,6 +10,14 @@ The outbox pattern is used to solve the problem of sending event and updating a 
 
 # How to use this library
 
+## Installation
+
+Note: This is a beta project and things might breaks.
+
+```bash
+pip install python-outbox
+```
+
 ## Concepts
 
 This library tries use the fact outbox pattern is based on the following operations:
@@ -27,4 +35,18 @@ In order to make those operation generics and allows to change the way you want 
 * Mapper: A mapper map a fetch item from a Source instance to a publishable type
 * Producer: A producer knows how link a source, publisher and mapper altogether
 * Runner: A runner will regularly run the producer steps to fetch and publish events.
+
+## Example:
+
+Code example incoming. An example using this library is available here at this time: https://github.com/Smixi/knative_journey
+
+# Documentation:
+
+Incomming.
+
+## TODO
+
+* Documentation
+* Examples
+* More implementation of Runner, Mapper and Publisher to support Celery/Redis, etc.
 
