@@ -1,6 +1,6 @@
 # Python-Outbox
 
-Python-outbox is a library that implement the Outbox pattern. This library is not maintained and it's used a educationnal purposes. I don't recommend using it in production.
+Python-outbox is a library that implement the Outbox pattern. This library is not maintained and it's used as an educationnal purposes. I don't recommend using it in production.
 
 It try to separate concerns of retrieving and publishing events in the pattern, allowing a generic implementation for any use case you would want.
 
